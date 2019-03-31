@@ -10,10 +10,10 @@ import java.util.Observer;
 /**
  * Décrivez votre classe Controleur ici.
  * 
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author Jalal Hassane
+ * @version 31/3/2019
  */
-public class Vue extends JPanel {// à compléter
+public class Vue extends JPanel implements Observer{
 
     private JLabel etatPile;
     private PileModele<Integer> pile;
@@ -21,6 +21,7 @@ public class Vue extends JPanel {// à compléter
     public Vue(PileModele<Integer> pile) {
         super();
         this.pile = pile;
+        pile.addObserver(this);
         this.etatPile = new JLabel("entrez des nombres entiers");
         setLayout(new FlowLayout(FlowLayout.LEFT));
         add(etatPile);
