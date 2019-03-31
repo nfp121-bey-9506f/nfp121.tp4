@@ -49,7 +49,6 @@ public class Controleur extends JPanel implements ActionListener{
     
     public void actionPerformed(ActionEvent ae){
         String action = ae.getActionCommand();
-        
         switch(action){
             case "empiler":int operande;
                            try{
@@ -67,6 +66,7 @@ public class Controleur extends JPanel implements ActionListener{
                            clear.setEnabled(true);
                            if(pile.estPleine()) push.setEnabled(false);
                            if(pile.taille()>1){add.setEnabled(true);sub.setEnabled(true);mul.setEnabled(true);div.setEnabled(true);}
+                           
                            break;
             case "ajouter":
             try{int resultat = pile.depiler()+pile.depiler();
@@ -74,6 +74,8 @@ public class Controleur extends JPanel implements ActionListener{
             }catch(PileVideException e){}
             catch(PilePleineException e){}
             if(pile.taille()==1) {add.setEnabled(false);sub.setEnabled(false);mul.setEnabled(false);div.setEnabled(false);}
+            else push.setEnabled(true);
+
             break;
             case "soustraire":
             try{int resultat = pile.depiler()-pile.depiler();
@@ -81,6 +83,7 @@ public class Controleur extends JPanel implements ActionListener{
             }catch(PileVideException e){}
             catch(PilePleineException e){}
             if(pile.taille()==1) {add.setEnabled(false);sub.setEnabled(false);mul.setEnabled(false);div.setEnabled(false);}
+            else push.setEnabled(true);
             break;
             case "multiplier":
             try{int resultat = pile.depiler()*pile.depiler();
@@ -88,6 +91,7 @@ public class Controleur extends JPanel implements ActionListener{
             }catch(PileVideException e){}
             catch(PilePleineException e){}
             if(pile.taille()==1) {add.setEnabled(false);sub.setEnabled(false);mul.setEnabled(false);div.setEnabled(false);}
+            else push.setEnabled(true);
             break;
             case "diviser":
             try{
@@ -100,6 +104,7 @@ public class Controleur extends JPanel implements ActionListener{
             }
             catch(PilePleineException e){}
             if(pile.taille()==1) {add.setEnabled(false);sub.setEnabled(false);mul.setEnabled(false);div.setEnabled(false);}
+            else push.setEnabled(true);
             break;
             case "clear":
             try{
